@@ -1,6 +1,7 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
   <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png" width="120" alt="Docker Logo" style="margin-left: 20px;"/>
+  <img src="https://wiki.postgresql.org/images/a/a4/PostgreSQL_logo.3colors.svg" width="100" alt="Postgres Logo" style="margin-left: 20px;"/>
 </p>
 
 # Nano-URL Shortener Microservice
@@ -10,7 +11,11 @@ A high-performance URL shortening service built with **NestJS**, **TypeORM**, an
 ## 🚀 Overview
 This microservice allows users to shorten long URLs into 6-character unique codes and provides seamless redirection. It follows a clean architecture, ensuring scalability and ease of deployment.
 
-
+### 🏗 System Architecture
+The application is architected using a multi-container Docker setup:
+1. **App Container**: Runs the NestJS application (Node.js).
+2. **DB Container**: Runs the PostgreSQL database.
+3. **Network**: Both containers communicate over a private bridge network for enhanced security.
 
 ## 🛠 Features
 - **URL Shortening**: Generates a unique 6-character ID for any valid URL.
@@ -19,7 +24,7 @@ This microservice allows users to shorten long URLs into 6-character unique code
 - **Dockerized**: Entire environment (App + DB) spins up with a single command.
 - **Validation**: Global validation pipes to ensure only valid URLs are processed.
 
-## 🐳 Getting Started (Docker)
+## 🐳 Getting Started (Dockerized Environment)
 
 The easiest way to run this project is using Docker. You don't need to install Node.js or PostgreSQL locally.
 
