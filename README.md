@@ -1,37 +1,63 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-  <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png" width="120" alt="Docker Logo" style="margin-left: 20px;"/>
-  <img src="https://wiki.postgresql.org/images/a/a4/PostgreSQL_logo.3colors.svg" width="100" alt="Postgres Logo" style="margin-left: 20px;"/>
+  <a href="https://nestjs.com/" target="_blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-# Nano-URL Shortener Microservice
+# Nano URL Shortener
 
-A high-performance URL shortening service built with **NestJS**, **TypeORM**, and **PostgreSQL**, fully containerized using **Docker**.
+[![NestJS](https://img.shields.io/badge/NestJS-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🚀 Overview
-This microservice allows users to shorten long URLs into 6-character unique codes and provides seamless redirection. It follows a clean architecture, ensuring scalability and ease of deployment.
+A high-performance URL shortening API built with **NestJS**. Shorten URLs to 6-char codes with seamless redirection.
 
-### 🏗 System Architecture
-The application is architected using a multi-container Docker setup:
-1. **App Container**: Runs the NestJS application (Node.js).
-2. **DB Container**: Runs the PostgreSQL database.
-3. **Network**: Both containers communicate over a private bridge network for enhanced security.
+## ✨ Features
+- Unique 6-character short codes
+- Instant redirection to original URLs
+- Automatic URL validation
+- Clean RESTful API
+- Serverless-ready (in-memory storage)
 
-## 🛠 Features
-- **URL Shortening**: Generates a unique 6-character ID for any valid URL.
-- **Redirection**: Automatically redirects users from the short code to the original long URL.
-- **Persistence**: Uses PostgreSQL to store URL mappings reliably.
-- **Dockerized**: Entire environment (App + DB) spins up with a single command.
-- **Validation**: Global validation pipes to ensure only valid URLs are processed.
+## 🚀 Quick Start
 
-## 🐳 Getting Started (Dockerized Environment)
+### Prerequisites
+- Node.js v18+
+- npm
 
-The easiest way to run this project is using Docker. You don't need to install Node.js or PostgreSQL locally.
-
-### 1. Prerequisites
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
-
-### 2. Run the Application
-In the project root directory, run:
+### Run
 ```bash
-docker compose up --build
+npm install
+npm run start:dev
+```
+
+Visit `http://localhost:3000`. Share publicly with `npx ngrok 3000`.
+
+### Test API
+**Shorten:**
+```bash
+curl -X POST http://localhost:3000/url/shorten \\
+  -H "Content-Type: application/json" \\
+  -d '{"longUrl": "https://www.google.com"}'
+```
+Response: `{"shortCode": "AbC123"}`
+
+**Redirect:**
+```bash
+curl -L http://localhost:3000/AbC123
+```
+
+## 📚 API Docs
+
+| Endpoint | Method | Body | Response |
+|----------|--------|------|----------|
+| `/url/shorten` | POST | `{"longUrl": "..."}` | `{"shortCode": "..."}` |
+| `/:shortCode` | GET | - | 302 Redirect |
+
+
+## 🤝 Contributing
+1. Fork repository
+2. `npm install`
+3. Create feature branch
+4. PR to main
+
+## 📄 License
+This project is MIT licensed.
