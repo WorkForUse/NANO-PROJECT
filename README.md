@@ -2,7 +2,7 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="100" alt="Nest Logo" /></a>
   <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png" width="100" alt="Docker Logo" style="margin-left: 20px;"/>
   <img src="https://wiki.postgresql.org/images/a/a4/PostgreSQL_logo.3colors.svg" width="90" alt="Postgres Logo" style="margin-left: 20px;"/>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrPmNWAtnroI424NFmJBwNtUs6YIL_eVXHjA&s" width="90" alt="Postgres Logo" style="margin-left: 20px;"/>
+<img src="[https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrPmNWAtnroI424NFmJBwNtUs6YIL_eVXHjA&s](https://images.seeklogo.com/logo-png/33/2/postman-logo-png_seeklogo-339967.png)" width="90" alt="Postgres Logo" style="margin-left: 20px;"/>
 
 </p>
 
